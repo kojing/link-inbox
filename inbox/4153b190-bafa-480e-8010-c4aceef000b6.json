@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "4153b190-bafa-480e-8010-c4aceef000b6",
+  "url": "https://iris-liquid-glass.netlify.app/",
+  "title": "IRIS — リアルタイム液体ガラス描画エンジン",
+  "tags": [
+    "UI/モーション参考"
+  ],
+  "description": "WebGL2で物理屈折する液体ガラス表現",
+  "createdAt": "2026-10-19T23:51:49.782Z"
+}
