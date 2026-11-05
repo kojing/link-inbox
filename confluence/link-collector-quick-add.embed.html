@@ -1,0 +1,18 @@
+<!--
+ リンク集 追加用ポップアップページ用 HTMLマクロ (v3.1.0)
+ 1. link-collector-quick-add.js を、本体と同じページに添付する
+ 2. 下の src の ASSET_PAGE_ID を、そのページのIDに書き換える
+ 3. TARGETS に追加先の本体ページID、OWNER_USERNAME に自分のユーザー名を書く
+-->
+<div id="link-quickadd-root"></div>
+<script>
+  window.LINK_COLLECTOR_QUICKADD_CONFIG = {
+    TARGETS: [
+      { id: 'YOUR_MAIN_PAGE_ID_HERE', label: 'メインのリンク集', enabled: true }
+      // , { id: '234567', label: '仕事用メモ', enabled: true }
+    ],
+    OWNER_USERNAME: 'YOUR_USERNAME_HERE'
+  };
+</script>
+<script src="/download/attachments/ASSET_PAGE_ID/link-collector-quick-add.js?v=3.1.0"
+  onerror="document.getElementById('link-quickadd-root').textContent='追加用スクリプト(link-collector-quick-add.js)を読み込めませんでした。添付先のページIDとファイル名を確認してください。'"></script>

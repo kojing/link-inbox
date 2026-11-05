@@ -1,0 +1,20 @@
+<!--
+ リンク集 本体ページ用 HTMLマクロ (v3.1.0)
+ 1. link-collector.js を、置き場所にするConfluenceページ(例:「リンク集の部品」)に添付する
+ 2. 下の src の ASSET_PAGE_ID を、そのページのIDに書き換える
+    (Confluence が /confluence などのパスの下にある場合は、先頭にそのパスも付ける)
+ 3. LINK_COLLECTOR_CONFIG を自分の設定に書き換える
+ 4. JSを更新したら、添付を上書きして ?v= の数字を変える(ブラウザのキャッシュ対策)
+-->
+<div id="link-collector-root"></div>
+<script>
+  window.LINK_COLLECTOR_CONFIG = {
+    OWNER_USERNAME: 'YOUR_USERNAME_HERE', // 自分のConfluenceユーザー名
+    QUICK_ADD_PAGE_URL: '',               // 追加用ポップアップページのURL(使わないなら空)
+    DISABLED_SPACES: [],                  // 例: ['PUBLICWIKI'] このスペースでは閲覧のみ
+    DISABLED_DOMAINS: [],
+    DISABLED_URLS: []
+  };
+</script>
+<script src="/download/attachments/ASSET_PAGE_ID/link-collector.js?v=3.1.0"
+  onerror="document.getElementById('link-collector-root').textContent='リンク集のスクリプト(link-collector.js)を読み込めませんでした。添付先のページIDとファイル名を確認してください。'"></script>
