@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "link-inbox に保存",
+  "short_name": "link-inbox",
+  "version": "1.0.0",
+  "description": "表示中のページやリンクを GitHub の link-inbox に保存し、Confluence のリンク集に取り込めるようにします。",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": {
+    "default_title": "link-inbox に保存",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "options_page": "options.html",
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["activeTab", "scripting", "storage", "contextMenus", "alarms"],
+  "host_permissions": ["https://api.github.com/*"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+L" },
+      "description": "保存画面を開く"
+    }
+  }
+}

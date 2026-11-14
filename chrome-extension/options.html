@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>link-inbox に保存 — 設定</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background: var(--canvas); }
+  main { max-width: 520px; margin: 40px auto; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr 110px; gap: 8px; }
+  .actions { display: flex; gap: 8px; justify-content: flex-end; }
+  ol { margin: 0; padding-left: 18px; font-size: 12px; color: var(--muted); display: grid; gap: 2px; }
+  @media (max-width: 560px) { main { margin: 16px; } .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1><span class="mark" aria-hidden="true"></span>link-inbox に保存 — 設定</h1>
+  <div class="row">
+    <label class="field">ユーザー / 組織<input type="text" id="owner"></label>
+    <label class="field">リポジトリ<input type="text" id="repo"></label>
+    <label class="field">ブランチ<input type="text" id="branch"></label>
+  </div>
+  <label class="field">書き込み用トークン（Fine-grained / Contents: Read and write）
+    <input type="password" id="token" autocomplete="off" placeholder="github_pat_…">
+  </label>
+  <ol>
+    <li>GitHub → Settings → Developer settings → Fine-grained tokens で作成</li>
+    <li>Repository access は <b>link-inbox だけ</b>、Permissions は <b>Contents: Read and write</b></li>
+    <li>iPhone の Scriptable 用とは別のトークンにしておくと、片方だけ取り消せます</li>
+  </ol>
+  <p class="hint">トークンはこの PC の Chrome 拡張の保存領域（chrome.storage.local）にだけ保存され、同期はされません。</p>
+  <div id="msg" class="msg" hidden role="status"></div>
+  <div class="actions">
+    <button class="btn" id="test">接続テスト</button>
+    <button class="btn primary" id="save">保存</button>
+  </div>
+</main>
+<script type="module" src="options.js"></script>
+</body>
+</html>

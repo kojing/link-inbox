@@ -1,0 +1,49 @@
+/* Confluence のリンク集と同じ見た目: BIZ UDPゴシック / 白い面と細い罫線 / 主要操作だけインディゴ */
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap');
+:root {
+  --font: "BIZ UDPGothic", "BIZ UDPゴシック", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", sans-serif;
+  --canvas: #F5F6F8; --surface: #FFFFFF; --line: #E4E6EB; --line-strong: #CDD1D9;
+  --ink: #15171C; --text: #2A2D34; --muted: #6B7080; --faint: #9AA0AE;
+  --accent: #5B5BD6; --accent-ink: #4744C2; --accent-soft: #EEEEFD;
+  --ok: #1F8A5A; --ok-soft: #DCF2E7; --warn: #A66300; --warn-soft: #FBEEDB; --danger: #C2372B; --danger-soft: #FDEDEB;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #121219; --surface: #1B1C24; --line: #2C2E3A; --line-strong: #3E4152;
+    --ink: #F2F2F7; --text: #DCDDE6; --muted: #9A9DB0; --faint: #6E7184;
+    --accent: #8B8BF0; --accent-ink: #A3A3F5; --accent-soft: #2A2A4D;
+    --ok: #4CC38A; --ok-soft: #163427; --warn: #E8A54B; --warn-soft: #3A2A14; --danger: #EF6B5E; --danger-soft: #3D1C19;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: var(--text); font-family: var(--font); font-size: 13px; line-height: 1.6; font-feature-settings: "palt" 1; letter-spacing: .01em; -webkit-font-smoothing: antialiased; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 15px; font-weight: 700; color: var(--ink); }
+.mark { width: 24px; height: 24px; border-radius: 7px; background: var(--accent); position: relative; flex: none; }
+.mark::before, .mark::after { content: ""; position: absolute; left: 50%; top: 50%; background: #fff; border-radius: 1px; transform: translate(-50%, -50%); }
+.mark::before { width: 10px; height: 2px; } .mark::after { width: 2px; height: 10px; }
+label.field { display: grid; gap: 5px; font-size: 11.5px; color: var(--muted); }
+input[type=text], input[type=password], textarea { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--surface); color: var(--ink); font-size: 13px; transition: border-color .15s, box-shadow .15s; }
+textarea { resize: vertical; min-height: 54px; }
+input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(91,91,214,.16); }
+input[readonly] { background: var(--canvas); color: var(--muted); font-size: 11.5px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 36px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 13px; }
+.btn:hover { border-color: var(--line-strong); color: var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.btn.primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn.small { height: 28px; padding: 0 10px; font-size: 12px; }
+.linkbtn { border: 0; background: none; color: var(--accent-ink); cursor: pointer; padding: 0; font-size: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 2px 10px; font-size: 11.5px; cursor: pointer; color: var(--text); }
+.chip:hover { border-color: var(--accent); color: var(--accent-ink); }
+.chip.on { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.msg { font-size: 12px; padding: 8px 10px; border-radius: 10px; }
+.msg.ok { background: var(--ok-soft); color: var(--ok); }
+.msg.warn { background: var(--warn-soft); color: var(--warn); }
+.msg.err { background: var(--danger-soft); color: var(--danger); }
+.hint { font-size: 11.5px; color: var(--muted); margin: 0; }
+[hidden] { display: none !important; }
